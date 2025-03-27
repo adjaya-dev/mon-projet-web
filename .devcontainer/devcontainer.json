@@ -12,6 +12,9 @@
         }
     },
     "forwardPorts": [80],
-    "postCreateCommand": "mkdir -p /var/www/html && cp -R . /var/www/html/",
-    "remoteUser": "vscode"
+    "postCreateCommand": "sudo chown -R vscode:vscode /workspace",
+    "remoteUser": "vscode",
+    "features": {
+        "ghcr.io/devcontainers/features/php:1": {}
+    }
 }
