@@ -1,5 +1,5 @@
 # Utiliser une image PHP avec Apache
-FROM php:8.3-apache
+FROM php:8.2-apache
 
 # Mise à jour et installation des dépendances
 RUN apt-get update && apt-get install -y \
@@ -20,5 +20,8 @@ RUN a2enmod rewrite
 # Définir le répertoire de travail
 WORKDIR /var/www/html
 
-# Installer Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Copier les fichiers du projet
+COPY . /var/www/html/
+
+# Permissions Apache
+RUN chown -R www-data:www-data /var/www/html

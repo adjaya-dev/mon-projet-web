@@ -7,12 +7,11 @@
         "vscode": {
             "extensions": [
                 "felixfbecker.php-debug",
-                "bmewburn.vscode-intelephense-client",
-                "evilz.vscode-unfold"
+                "bmewburn.vscode-intelephense-client"
             ]
         }
     },
     "forwardPorts": [80],
-    "postCreateCommand": "composer install",
+    "postCreateCommand": "mkdir -p /var/www/html && cp -R . /var/www/html/",
     "remoteUser": "vscode"
 }
